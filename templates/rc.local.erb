@@ -1,0 +1,19 @@
+#!/bin/sh -e
+# File Managed by Puppet
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# With Puppet is managed the content of <%= scope.lookupvar('rclocal::params::configdir') %>
+
+for command in $(ls -v1 <%= scope.lookupvar('rclocal::params::configdir') %> ) ; do
+    <%= scope.lookupvar('rclocal::params::configdir') %>/$command
+done
+
+<% if osfamily == 'RedHat' %>
+touch /var/lock/subsys/local
+<% end %>
+<% if osfamily == 'Debian' %>   
+exit 0
+<% end %>
