@@ -11,9 +11,8 @@ for command in $(ls -v1 <%= scope.lookupvar('rclocal::params::configdir') %> ) ;
     <%= scope.lookupvar('rclocal::params::configdir') %>/$command
 done
 
-<% if osfamily == 'RedHat' %>
+<% if operatingsystem == 'RedHat' or operatingsystem == 'Scientific' or operatingsystem == 'CentOS' or operatingsystem == 'Linux' %>
 touch /var/lock/subsys/local
-<% end %>
-<% if osfamily == 'Debian' %>   
+<% else %>
 exit 0
 <% end %>
