@@ -1,7 +1,7 @@
 # Class: rclocal::params
 #
 # Sets internal variables and defaults for rclocal module
-# This class is automatically loaded in all the classes that use the values set here 
+# This class is automatically loaded in all the classes that use the values set here
 #
 class rclocal::params  {
 

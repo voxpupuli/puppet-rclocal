@@ -8,7 +8,7 @@
 #
 class rclocal {
 
-  # Load the variables used in this module. Check the params.pp file 
+  # Load the variables used in this module. Check the params.pp file
   require rclocal::params
 
   file { '/etc/rc.local':
@@ -21,13 +21,13 @@ class rclocal {
   }
 
   file { '/etc/rc.local.d':
+    ensure  => directory,
     path    => $rclocal::params::configdir,
     mode    => '0755',
     owner   => 'root',
     group   => 'root',
-    ensure  => directory,
     purge   => true,
     recurse => true,
   }
-  
+
 }
