@@ -7,22 +7,23 @@
 # include rclocal
 #
 class rclocal(
-  $templatepath = params_lookup( 'templatepath' ),
-  $templatefile = params_lookup( 'templatefile' )
+  $config_file  = params_lookup( 'config_file' ),
+  $config_dir   = params_lookup( 'config_dir' ),
+  $template     = params_lookup( 'template' )
   ) inherits rclocal::params {
 
   file { '/etc/rc.local':
     ensure  => present,
-    path    => $rclocal::configfile,
+    path    => $rclocal::config_file,
     mode    => '0755',
     owner   => 'root',
     group   => 'root',
-    content => template("${rclocal::templatepath}/${rclocal::templatefile}"),
+    content => template($rclocal::template),
   }
 
   file { '/etc/rc.local.d':
     ensure  => directory,
-    path    => $rclocal::configdir,
+    path    => $rclocal::config_dir,
     mode    => '0755',
     owner   => 'root',
     group   => 'root',

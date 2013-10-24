@@ -8,16 +8,16 @@ class rclocal::params  {
 ## MODULE INTERNAL VARIABLES
 # (Modify to adapt to unsupported OSes)
 
-  $configfile = $::osfamily ? {
+  $config_file = $::osfamily ? {
     RedHat  => '/etc/rc.d/rc.local',
     default => '/etc/rc.local',
   }
 
-  $configdir = $::operatingsystem ? {
+  $config_dir = $::operatingsystem ? {
     default => '/etc/rc.local.d',
   }
 
   # General settings
-  $templatepath = 'rclocal'
-  $templatefile = 'rc.local.erb'
+  $template = 'rclocal/rc.local.erb'
+
 }
