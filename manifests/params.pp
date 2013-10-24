@@ -16,4 +16,8 @@ class rclocal::params  {
   $configdir = $::operatingsystem ? {
     default => '/etc/rc.local.d',
   }
+
+  # General settings
+  $templatepath = 'rclocal'
+  $templatefile = 'rc.local.erb'
 }
