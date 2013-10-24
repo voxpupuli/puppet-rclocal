@@ -6,23 +6,23 @@
 # Usage:
 # include rclocal
 #
-class rclocal {
-
-  # Load the variables used in this module. Check the params.pp file
-  require rclocal::params
+class rclocal(
+  $templatepath = params_lookup( 'templatepath' ),
+  $templatefile = params_lookup( 'templatefile' )
+  ) inherits rclocal::params {
 
   file { '/etc/rc.local':
     ensure  => present,
-    path    => $rclocal::params::configfile,
+    path    => $rclocal::configfile,
     mode    => '0755',
     owner   => 'root',
     group   => 'root',
-    content => template('rclocal/rc.local.erb'),
+    content => template("${rclocal::templatepath}/${rclocal::templatefile}"),
   }
 
   file { '/etc/rc.local.d':
     ensure  => directory,
-    path    => $rclocal::params::configdir,
+    path    => $rclocal::configdir,
     mode    => '0755',
     owner   => 'root',
     group   => 'root',
