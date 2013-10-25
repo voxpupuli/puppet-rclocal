@@ -5,10 +5,10 @@
 # Make sure that the script will "exit 0" on success or any other
 # value on error.
 #
-# With Puppet is managed the content of <%= scope.lookupvar('rclocal::params::configdir') %>
+# With Puppet is managed the content of <%= scope.lookupvar('rclocal::config_dir') %>
 
-for command in $(ls -v1 <%= scope.lookupvar('rclocal::params::configdir') %> ) ; do
-    <%= scope.lookupvar('rclocal::params::configdir') %>/$command
+for command in $(ls -v1 <%= scope.lookupvar('rclocal::config_dir') %> ) ; do
+    <%= scope.lookupvar('rclocal::config_dir') %>/$command
 done
 
 <% if @operatingsystem == 'RedHat' or @operatingsystem == 'Scientific' or @operatingsystem == 'CentOS' or @operatingsystem == 'Linux' %>
