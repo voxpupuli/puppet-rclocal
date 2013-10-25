@@ -24,7 +24,7 @@ define rclocal::script (
   $bool_autoexec = any2bool($autoexec)
 
   file { "rclocal_${priority}_${safe_name}":
-    path    => "${rclocal::params::configdir}/${priority}-${safe_name}",
+    path    => "${rclocal::config_dir}/${priority}-${safe_name}",
     mode    => '0755',
     owner   => 'root',
     group   => 'root',
@@ -34,7 +34,7 @@ define rclocal::script (
 
   if $bool_autoexec == true {
     exec { "rclocal_${priority}_${safe_name}":
-      command     => "sh ${rclocal::params::configdir}/${priority}-${safe_name}",
+      command     => "sh ${rclocal::config_dir}/${priority}-${safe_name}",
       refreshonly => true,
       subscribe   => File[ "rclocal_${priority}_${safe_name}" ],
       path        => '/usr/bin:/bin:/usr/sbin:/sbin',
