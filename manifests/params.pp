@@ -20,4 +20,7 @@ class rclocal::params  {
   # General settings
   $template = 'rclocal/rc.local.erb'
 
+  # Start with an empty script hash
+  $scripts = { }
+
 }
