@@ -9,13 +9,15 @@
 # }
 #
 # Priority influences the execution order while content contains the script
-# to be executed. Can be also a template, had has the saem syntax of the
+# to be executed. Can be also a template, had has the same syntax of the
 # content param in the file type.
 #
 define rclocal::script (
+  $ensure   = present,
   $priority = '50',
   $autoexec = true,
-  $content  = '' ) {
+  $content  = '',
+) {
 
   include rclocal
   require rclocal::params
@@ -23,7 +25,14 @@ define rclocal::script (
   $safe_name = regsubst($name, '/', '_', 'G')
   $bool_autoexec = any2bool($autoexec)
 
+  $ensure_script = $ensure ? {
+    false   => absent,
+    absent  => absent,
+    default => present,
+  }
+
   file { "rclocal_${priority}_${safe_name}":
+    ensure  => $ensure_script,
     path    => "${rclocal::config_dir}/${priority}-${safe_name}",
     mode    => '0755',
     owner   => 'root',
@@ -32,7 +41,7 @@ define rclocal::script (
     content => $content,
   }
 
-  if $bool_autoexec == true {
+  if $bool_autoexec == true and $ensure_script == present {
     exec { "rclocal_${priority}_${safe_name}":
       command     => "sh ${rclocal::config_dir}/${priority}-${safe_name}",
       refreshonly => true,
@@ -41,4 +50,3 @@ define rclocal::script (
     }
   }
 }
-
