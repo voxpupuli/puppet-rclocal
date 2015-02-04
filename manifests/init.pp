@@ -9,7 +9,8 @@
 class rclocal(
   $config_file  = params_lookup( 'config_file' ),
   $config_dir   = params_lookup( 'config_dir' ),
-  $template     = params_lookup( 'template' )
+  $template     = params_lookup( 'template' ),
+  $scripts      = params_lookup( 'scripts' )
   ) inherits rclocal::params {
 
   file { '/etc/rc.local':
@@ -31,4 +32,9 @@ class rclocal(
     recurse => true,
   }
 
+  ### Create instances for integration with Hiera
+  if $scripts != {} {
+    validate_hash($scripts)
+    create_resources(rclocal::script, $scripts)
+  }
 }
