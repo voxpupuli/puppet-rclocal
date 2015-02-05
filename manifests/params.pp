@@ -19,5 +19,6 @@ class rclocal::params  {
 
   # General settings
   $template = 'rclocal/rc.local.erb'
+  $scripts  = {}
 
 }
