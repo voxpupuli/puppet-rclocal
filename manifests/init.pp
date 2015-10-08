@@ -18,7 +18,7 @@ class rclocal(
     path    => $rclocal::config_file,
     mode    => '0755',
     owner   => 'root',
-    group   => 'root',
+    group   => '0',
     content => template($rclocal::template),
   }
 
@@ -27,7 +27,7 @@ class rclocal(
     path    => $rclocal::config_dir,
     mode    => '0755',
     owner   => 'root',
-    group   => 'root',
+    group   => '0',
     purge   => true,
     recurse => true,
   }
