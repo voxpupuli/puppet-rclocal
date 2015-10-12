@@ -36,7 +36,7 @@ define rclocal::script (
     path    => "${rclocal::config_dir}/${priority}-${safe_name}",
     mode    => '0755',
     owner   => 'root',
-    group   => 'root',
+    group   => '0',
     require => File['/etc/rc.local.d'],
     content => $content,
   }
