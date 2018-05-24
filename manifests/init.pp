@@ -7,10 +7,10 @@
 # include rclocal
 #
 class rclocal(
-  $config_file  = params_lookup( 'config_file' ),
-  $config_dir   = params_lookup( 'config_dir' ),
-  $template     = params_lookup( 'template' ),
-  $scripts      = params_lookup( 'scripts' )
+  $config_file  = $::rclocal::params::config_file,
+  $config_dir   = $::rclocal::params::config_dir,
+  $template     = $::rclocal::params::template,
+  $scripts      = $::rclocal::params::scripts
   ) inherits rclocal::params {
 
   file { '/etc/rc.local':
