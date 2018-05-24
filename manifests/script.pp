@@ -26,9 +26,9 @@ define rclocal::script (
   $bool_autoexec = any2bool($autoexec)
 
   $ensure_script = $ensure ? {
-    false   => absent,
-    absent  => absent,
-    default => present,
+    false     => absent,
+    'absent'  => absent,
+    default   => present,
   }
 
   file { "rclocal_${priority}_${safe_name}":

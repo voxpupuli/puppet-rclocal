@@ -9,7 +9,7 @@ class rclocal::params  {
 # (Modify to adapt to unsupported OSes)
 
   $config_file = $::osfamily ? {
-    RedHat  => '/etc/rc.d/rc.local',
+    'RedHat'  => '/etc/rc.d/rc.local',
     default => '/etc/rc.local',
   }
 
