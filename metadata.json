@@ -2,7 +2,7 @@
   "name": "example42-rclocal",
   "version": "3.0.0",
   "author": "example42",
-  "summary": "",
+  "summary": "Manages rc.local",
   "license": "Apache-2.0",
   "source": "https://github.com/example42/puppet-rclocal",
   "dependencies": [
