@@ -7,11 +7,11 @@
 # include rclocal
 #
 class rclocal(
-  $config_file  = params_lookup( 'config_file' ),
-  $config_dir   = params_lookup( 'config_dir' ),
-  $template     = params_lookup( 'template' ),
-  $scripts      = params_lookup( 'scripts' )
-  ) inherits rclocal::params {
+  Stdlib::Absolutepath $config_file,
+  Stdlib::Absolutepath $config_dir,
+  String[1]            $template,
+  Hash                 $scripts,
+) {
 
   file { '/etc/rc.local':
     ensure  => present,
@@ -34,7 +34,12 @@ class rclocal(
 
   ### Create instances for integration with Hiera
   if $scripts != {} {
-    validate_hash($scripts)
-    create_resources(rclocal::script, $scripts)
+    $scripts.each |$k, $v| {
+      rclocal::scripts { $k:
+        * => $v,
+      }
+    }
   }
+
 }
+

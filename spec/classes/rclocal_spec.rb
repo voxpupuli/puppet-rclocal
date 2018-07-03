@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe 'rclocal' do
-  context 'should compile' do
-    it { should compile }
-    it { should contain_class('rclocal') }
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
+
+      it { is_expected.to compile }
+      it { is_expected.to contain_class('rclocal') }
+    end
   end
 end

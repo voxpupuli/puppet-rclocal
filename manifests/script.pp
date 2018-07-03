@@ -13,26 +13,18 @@
 # content param in the file type.
 #
 define rclocal::script (
-  $ensure   = present,
-  $priority = '50',
-  $autoexec = true,
-  $content  = '',
+  Enum['absent', 'present'] $ensure   = 'present',
+  String[1]                 $priority = '50',
+  Boolean                   $autoexec = true,
+  String                    $content  = '',
 ) {
 
   include rclocal
-  require rclocal::params
 
   $safe_name = regsubst($name, '/', '_', 'G')
-  $bool_autoexec = any2bool($autoexec)
-
-  $ensure_script = $ensure ? {
-    false   => absent,
-    absent  => absent,
-    default => present,
-  }
 
   file { "rclocal_${priority}_${safe_name}":
-    ensure  => $ensure_script,
+    ensure  => $ensure,
     path    => "${rclocal::config_dir}/${priority}-${safe_name}",
     mode    => '0755',
     owner   => 'root',
@@ -41,7 +33,7 @@ define rclocal::script (
     content => $content,
   }
 
-  if $bool_autoexec == true and $ensure_script == present {
+  if $autoexec == true and $ensure == present {
     exec { "rclocal_${priority}_${safe_name}":
       command     => "sh ${rclocal::config_dir}/${priority}-${safe_name}",
       refreshonly => true,
@@ -50,3 +42,4 @@ define rclocal::script (
     }
   }
 }
+
