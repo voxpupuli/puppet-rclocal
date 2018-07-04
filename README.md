@@ -2,13 +2,27 @@
 
 [![Build Status](https://travis-ci.org/example42/puppet-rclocal.png?branch=master)](https://travis-ci.org/example42/puppet-rclocal)
 
-This module manages rclocal settings in /etc/rc.local file and /etc/rc.local.d directory.
+This module manages rc.local entries in /etc/rc.local file directory.
 
-Usage:
+## Usage
 
-    include rclocal
+Main usage is via a defined resource tye:
 
-Author:
+    rclocal::script { 'name':
+      ensure   => 'present',
+      content  => "content for rc_local\n",
+      priority => '44',
+      autoexec => true,
+    }
 
-    example42 GmbH (c) 2018
+## Parameters
+
+- ensure: set to 'present' or 'absent'
+- content: the content you want to add
+- priority: manages the order where the content appears
+- autoexec: true or false - should puppet execute the code snippet from content - if set to false code will get executed on next reboot
+
+## Author
+
+example42 GmbH (c) 2018
 
