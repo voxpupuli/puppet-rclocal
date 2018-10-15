@@ -2,9 +2,26 @@
 
 [![Build Status](https://travis-ci.org/example42/puppet-rclocal.png?branch=master)](https://travis-ci.org/example42/puppet-rclocal)
 
+#### Table of Contents
+1. [Module Description](#module-description)
+1. [Setup](#setup)
+1. [Usage](#usage)
+1. [Parameters](#parameters)
+1. [Development](#development)
+1. [Author](#author)
+
+## Module description
 This module manages rc.local entries in /etc/rc.local file directory.
 
+## Setup
+
+This module uses Data Types from puppetlabs-stdlib!
+
 ## Usage
+
+To only manage the content of rc.local file:
+
+    include rclocal
 
 Main usage is via a defined resource tye:
 
@@ -15,6 +32,16 @@ Main usage is via a defined resource tye:
       autoexec => true,
     }
 
+Or by defining hiera data:
+
+    ---
+    rclocal::scripts:
+      'name':
+        'ensure': 'present'
+        'content': "content for rc_local\n"
+        'priority': '44'
+        'autoexec': true
+
 ## Parameters
 
 - ensure: set to 'present' or 'absent'
@@ -22,7 +49,11 @@ Main usage is via a defined resource tye:
 - priority: manages the order where the content appears
 - autoexec: true or false - should puppet execute the code snippet from content - if set to false code will get executed on next reboot
 
+## Development
+
+If you encounter problems, please [open an issue](https://github.com/example42/puppet-rclocal/issues/new), if you miss functionality, we are happy to review [Pull Requests](https://github.com/example42/puppet-rclocal/pulls)
+
 ## Author
 
-example42 GmbH (c) 2018
+This module is maintained and created by [example42 GmbH](https://example42.com) (c) 2012-2018
 
