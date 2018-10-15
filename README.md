@@ -49,6 +49,14 @@ Or by defining hiera data for main class `scripts` parameter:
         'priority': '44'
         'autoexec': true
 
+and then consume the data in your profile:
+
+    lookup('rclocal::scripts').each |$key, $params| {
+      rclocal::script { $key:
+        * => $params,
+      }
+    }
+
 ## Parameters
 
 - ensure: set to 'present' or 'absent'
