@@ -28,5 +28,17 @@ describe 'rclocal' do
 
       it { is_expected.to contain_rclocal__script('spec').with_content('spec_content') }
     end
+    context "with wrong data on #{os}" do
+      let(:facts) do
+        facts
+      end
+      let(:params) do
+        {
+          'config_file' => 'foobar',
+        }
+      end
+
+      it { is_expected.to compile.and_raise_error(%r{parameter 'config_file' expects a}) }
+    end
   end
 end
