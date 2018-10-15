@@ -47,7 +47,7 @@ define rclocal::script (
     content => $content,
   }
 
-  if $autoexec == true and $ensure == present {
+  if $autoexec == true and $ensure == 'present' {
     exec { "rclocal_${priority}_${safe_name}":
       command     => "sh ${rclocal::config_dir}/${priority}-${safe_name}",
       refreshonly => true,
