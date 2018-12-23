@@ -1,6 +1,6 @@
 ---
 rclocal::config_file: '/etc/rc.local'
 rclocal::config_dir: '/etc/rc.local.d'
-rclocal::template: 'rclocal/rc.local.erb'
+rclocal::template: 'rclocal/rc.local.epp'
 rclocal::scripts: {}
 
