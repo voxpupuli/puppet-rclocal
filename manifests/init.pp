@@ -3,8 +3,7 @@
 # @summary Manages /etc/rc.local file inserting a /etc/rc.local.d/ directory where
 #   each script is managaed by Puppet
 #
-# @example Usage:
-#   include rclocal
+# @example include rclocal
 #
 # @param config_file
 #   The full name and path of the rc.local file, defaults to /etc/rc.local on most operatingsystems.
@@ -27,21 +26,21 @@ class rclocal(
   Hash                 $scripts,
 ) {
 
+  File {
+    owner => 'root',
+    group => '0',
+    mode  => '0755',
+  }
+
   file { '/etc/rc.local':
     ensure  => present,
     path    => $rclocal::config_file,
-    mode    => '0755',
-    owner   => 'root',
-    group   => '0',
-    content => template($rclocal::template),
+    content => epp($rclocal::template),
   }
 
   file { '/etc/rc.local.d':
     ensure  => directory,
     path    => $rclocal::config_dir,
-    mode    => '0755',
-    owner   => 'root',
-    group   => '0',
     purge   => true,
     recurse => true,
   }
@@ -52,6 +51,19 @@ class rclocal(
       rclocal::script { $k:
         * => $v,
       }
+    }
+  }
+
+  if $facts['service_provider'] == 'systemd' {
+    ### Systemd support
+    file { '/etc/systemd/system/rc-local.service':
+      ensure  => file,
+      mode    => '0644',
+      content => epp('rclocal/systemd_rc-local.service.epp'),
+    }
+    service { 'rc-local':
+      ensure => running,
+      enable => true,
     }
   }
 
