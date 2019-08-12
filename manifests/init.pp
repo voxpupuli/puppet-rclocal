@@ -58,18 +58,10 @@ class rclocal (
     }
   }
 
-  if $facts['service_provider'] == 'systemd' {
-    if $facts['os']['family'] != 'Debian' {
-      ### Systemd support
-      file { "/etc/systemd/system/${service_name}":
-        ensure  => file,
-        mode    => '0644',
-        content => epp('rclocal/systemd_rc-local.service.epp'),
-      }
-    }
-    service { $service_name:
-      ensure => running,
-      enable => true,
-    }
+  systemd::unit_file { $service_name:
+    ensure  => 'present',
+    content => epp('rclocal/systemd_rc-local.service.epp'),
+    enable  => true,
+    active  => true,
   }
 }

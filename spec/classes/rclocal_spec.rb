@@ -9,10 +9,11 @@ describe 'rclocal' do
         facts
       end
 
-      it { is_expected.to compile }
+      it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('rclocal') }
       it { is_expected.to contain_file('/etc/rc.local') }
       it { is_expected.to contain_file('/etc/rc.local.d') }
+      it { is_expected.to contain_systemd__unit_file('rc-local.service') }
     end
 
     context "with scripts hash set on #{os}" do
