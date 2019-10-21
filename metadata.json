@@ -1,6 +1,6 @@
 {
   "name": "example42-rclocal",
-  "version": "3.0.4",
+  "version": "3.0.6",
   "author": "example42",
   "summary": "Manages rc.local",
   "license": "Apache-2.0",
