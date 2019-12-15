@@ -43,7 +43,6 @@ define rclocal::script (
     mode    => '0755',
     owner   => 'root',
     group   => '0',
-    require => File['/etc/rc.local.d'],
     content => $content,
   }
 
@@ -51,7 +50,7 @@ define rclocal::script (
     exec { "rclocal_${priority}_${safe_name}":
       command     => "sh ${rclocal::config_dir}/${priority}-${safe_name}",
       refreshonly => true,
-      subscribe   => File[ "rclocal_${priority}_${safe_name}" ],
+      subscribe   => File["rclocal_${priority}_${safe_name}"],
       path        => '/usr/bin:/bin:/usr/sbin:/sbin',
     }
   }

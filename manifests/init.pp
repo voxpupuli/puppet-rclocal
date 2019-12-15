@@ -33,7 +33,7 @@ class rclocal(
   }
 
   file { '/etc/rc.local':
-    ensure  => present,
+    ensure  => file,
     path    => $rclocal::config_file,
     content => epp($rclocal::template),
   }
@@ -49,7 +49,8 @@ class rclocal(
   if $scripts != {} {
     $scripts.each |$k, $v| {
       rclocal::script { $k:
-        * => $v,
+        *       => $v,
+        require => File['/etc/rc.local.d'],
       }
     }
   }
