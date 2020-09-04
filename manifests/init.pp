@@ -15,6 +15,9 @@
 # @param template
 #   The template to use to generate the rc.local file. Defaults to module template
 #
+# @param service_name
+#   The name of the systemd service. Only used on systems with service provider systemd
+#
 # @param scripts
 #   A hash of snippets to be added.
 #   The key must be the snippet name, the values must be parameteres of the rclocal::script define.
@@ -24,6 +27,7 @@ class rclocal(
   Stdlib::Absolutepath $config_dir,
   String[1]            $template,
   Hash                 $scripts,
+  String[1]            $service_name,
 ) {
 
   File {
@@ -56,13 +60,15 @@ class rclocal(
   }
 
   if $facts['service_provider'] == 'systemd' {
-    ### Systemd support
-    file { '/etc/systemd/system/rc-local.service':
-      ensure  => file,
-      mode    => '0644',
-      content => epp('rclocal/systemd_rc-local.service.epp'),
+    if $facts['os']['family'] != 'Debian' {
+      ### Systemd support
+      file { "/etc/systemd/system/${service_name}":
+        ensure  => file,
+        mode    => '0644',
+        content => epp('rclocal/systemd_rc-local.service.epp'),
+      }
     }
-    service { 'rc-local':
+    service { $service_name:
       ensure => running,
       enable => true,
     }

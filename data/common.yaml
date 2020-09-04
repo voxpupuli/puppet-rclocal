@@ -3,4 +3,5 @@ rclocal::config_file: '/etc/rc.local'
 rclocal::config_dir: '/etc/rc.local.d'
 rclocal::template: 'rclocal/rc.local.epp'
 rclocal::scripts: {}
+rclocal::service_name: 'rc-local.service'
 
