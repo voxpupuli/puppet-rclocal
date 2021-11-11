@@ -32,7 +32,6 @@ define rclocal::script (
   Boolean                   $autoexec = true,
   String                    $content  = '',
 ) {
-
   include rclocal
 
   $safe_name = regsubst($title, '/', '_', 'G')
@@ -55,4 +54,3 @@ define rclocal::script (
     }
   }
 }
-

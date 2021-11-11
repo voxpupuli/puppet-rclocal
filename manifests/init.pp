@@ -22,14 +22,13 @@
 #   A hash of snippets to be added.
 #   The key must be the snippet name, the values must be parameteres of the rclocal::script define.
 #
-class rclocal(
+class rclocal (
   Stdlib::Absolutepath $config_file,
   Stdlib::Absolutepath $config_dir,
   String[1]            $template,
   Hash                 $scripts,
   String[1]            $service_name,
 ) {
-
   File {
     owner => 'root',
     group => '0',
@@ -73,6 +72,4 @@ class rclocal(
       enable => true,
     }
   }
-
 }
-
