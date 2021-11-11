@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'rclocal' do
@@ -12,6 +14,7 @@ describe 'rclocal' do
       it { is_expected.to contain_file('/etc/rc.local') }
       it { is_expected.to contain_file('/etc/rc.local.d') }
     end
+
     context "with scripts hash set on #{os}" do
       let(:facts) do
         facts
@@ -28,6 +31,7 @@ describe 'rclocal' do
 
       it { is_expected.to contain_rclocal__script('spec').with_content('spec_content') }
     end
+
     context "with wrong data on #{os}" do
       let(:facts) do
         facts

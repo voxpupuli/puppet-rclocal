@@ -1,19 +1,26 @@
-## Expected Behavior 
+<!--
+Thank you for contributing to this project!
 
+- This project has a Contributor Code of Conduct: https://voxpupuli.org/coc/
+- Please check that here is no existing issue or PR that addresses your problem.
+- Please fill the following form to enable us to help you.
+- Our vulnerabilities reporting process is at https://voxpupuli.org/security/
 
-## Actual Behavior
+-->
 
+## Affected Puppet, Ruby, OS and module versions/distributions
 
-## Steps to Reproduce the Problem
+- Puppet:
+- Ruby:
+- Distribution:
+- Module version:
 
-  1. 
-  1. 
-  1. 
+## How to reproduce (e.g Puppet code you use)
 
-## Specifications
+## What are you seeing
 
-Please add this info:
+## What behaviour did you expect instead
 
-  1. Output of ```facter -p``` on the failing node (at least the OS related facts)
-  1. Version of Puppet and of the module
-  1. The relevant Puppet code and eventually Hiera data
+## Output log
+
+## Any additional information you'd like to impart
