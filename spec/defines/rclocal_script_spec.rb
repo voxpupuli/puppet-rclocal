@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'rclocal::script' do
@@ -12,7 +14,8 @@ describe 'rclocal::script' do
 
       it { is_expected.to contain_file('rclocal_50_spec') }
     end
-    context "with default data and unsafe title  on #{os}" do
+
+    context "with default data and unsafe title on #{os}" do
       let(:facts) do
         facts
       end
@@ -22,6 +25,7 @@ describe 'rclocal::script' do
 
       it { is_expected.to contain_file('rclocal_50_spec_test') }
     end
+
     context "with data set on #{os}" do
       let(:facts) do
         facts
