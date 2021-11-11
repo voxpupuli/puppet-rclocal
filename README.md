@@ -1,6 +1,6 @@
 # Puppet rclocal module
 
-[![Build Status](https://travis-ci.org/example42/puppet-rclocal.png?branch=master)](https://travis-ci.org/example42/puppet-rclocal)
+[![Build Status](https://travis-ci.org/voxpupuli/puppet-rclocal.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-rclocal)
 
 #### Table of Contents
 1. [Module Description](#module-description)
@@ -66,9 +66,11 @@ and then consume the data in your profile:
 
 ## Development
 
-If you encounter problems, please [open an issue](https://github.com/example42/puppet-rclocal/issues/new), if you miss functionality, we are happy to review [Pull Requests](https://github.com/example42/puppet-rclocal/pulls)
+If you encounter problems, please [open an issue](https://github.com/voxpupuli/puppet-rclocal/issues/new), if you miss functionality, we are happy to review [Pull Requests](https://github.com/voxpupuli/puppet-rclocal/pulls)
 
 ## Author
 
-This module is maintained and created by [example42 GmbH](https://example42.com) (c) 2012-2018
+This module was maintained and created by [example42 GmbH](https://example42.com) (c) 2012-2021
+Module is transferred to [Vox Pupuli](https://voxpupuli.org) on Nov 11th 2021.
+
 
