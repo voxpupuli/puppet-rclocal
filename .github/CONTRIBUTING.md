@@ -24,7 +24,7 @@
 If you need express resolution of a bug or new features you can consider the opportunity of **sponsoring** the relevant development.
  
   * Open an issue on GitHub (of type `bug` or `enhancement`) with the details of what you want 
-  * Contact [example42](http://www.example42.com/#contact) referring the issue you created
+  * Contact [Vox Pupuli](https://voxpupuli.org) referring the issue you created
   * Tell us how you want to sponsor the development (sending money, gifts or offering services)
   * If we agree on the conditions we will place your [company] name in the module's Sponsors List
 

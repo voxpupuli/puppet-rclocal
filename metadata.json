@@ -1,12 +1,12 @@
 {
-  "name": "example42-rclocal",
-  "version": "3.3.1",
-  "author": "example42",
+  "name": "voxpupuli-rclocal",
+  "version": "3.3.2",
+  "author": "Vox Pupuli",
   "summary": "Manages rc.local",
   "license": "Apache-2.0",
-  "source": "https://github.com/example42/puppet-rclocal",
-  "project_page": "https://github.com/example42/puppet-rclocal",
-  "issues_url": "https://github.com/example42/puppet-rclocal/issues",
+  "source": "https://github.com/voxpupuli/puppet-rclocal",
+  "project_page": "https://github.com/voxpupuli/puppet-rclocal",
+  "issues_url": "https://github.com/voxpupuli/puppet-rclocal/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
@@ -70,7 +70,7 @@
       "version_requirement": ">= 4.10.0 < 8.0.0"
     }
   ],
-  "pdk-version": "2.1.0",
-  "template-url": "pdk-default#2.1.0",
-  "template-ref": "tags/2.1.0-0-ga675ea5"
+  "pdk-version": "2.2.0",
+  "template-url": "pdk-default#2.2.0",
+  "template-ref": "tags/2.2.0-0-g2381db6"
 }
