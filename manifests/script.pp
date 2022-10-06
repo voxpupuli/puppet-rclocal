@@ -30,7 +30,7 @@ define rclocal::script (
   Enum['absent', 'present'] $ensure   = 'present',
   String[1]                 $priority = '50',
   Boolean                   $autoexec = true,
-  String                    $content  = '',
+  Optional[String[1]]       $content  = undef,
 ) {
   include rclocal
 
