@@ -1,6 +1,6 @@
 {
   "name": "puppet-rclocal",
-  "version": "4.0.1-rc0",
+  "version": "5.0.0",
   "author": "Vox Pupuli",
   "summary": "Manages rc.local",
   "license": "Apache-2.0",
