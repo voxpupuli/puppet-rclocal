@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v6.0.0](https://github.com/voxpupuli/puppet-rclocal/tree/v6.0.0) (2025-12-20)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v5.0.0...v6.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#64](https://github.com/voxpupuli/puppet-rclocal/pull/64) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- Add support for Debian 12 [\#66](https://github.com/voxpupuli/puppet-rclocal/pull/66) ([smortex](https://github.com/smortex))
+- metadata.json: Add OpenVox [\#60](https://github.com/voxpupuli/puppet-rclocal/pull/60) ([jstraw](https://github.com/jstraw))
+
 ## [v5.0.0](https://github.com/voxpupuli/puppet-rclocal/tree/v5.0.0) (2023-11-30)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v4.0.0...v5.0.0)
@@ -61,7 +74,7 @@ These should not affect the functionality of the module.
 
 ## [v3.1.0](https://github.com/voxpupuli/puppet-rclocal/tree/v3.1.0) (2020-09-04)
 
-[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.6...v3.1.0)
+[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.5...v3.1.0)
 
 **Closed issues:**
 
@@ -73,13 +86,13 @@ These should not affect the functionality of the module.
 - Add more lint tests [\#23](https://github.com/voxpupuli/puppet-rclocal/pull/23) ([tuxmea](https://github.com/tuxmea))
 - new release [\#22](https://github.com/voxpupuli/puppet-rclocal/pull/22) ([tuxmea](https://github.com/tuxmea))
 
-## [v3.0.6](https://github.com/voxpupuli/puppet-rclocal/tree/v3.0.6) (2019-10-21)
-
-[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.5...v3.0.6)
-
 ## [v3.0.5](https://github.com/voxpupuli/puppet-rclocal/tree/v3.0.5) (2019-10-21)
 
-[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.4...v3.0.5)
+[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.6...v3.0.5)
+
+## [v3.0.6](https://github.com/voxpupuli/puppet-rclocal/tree/v3.0.6) (2019-10-21)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-rclocal/compare/v3.0.4...v3.0.6)
 
 **Merged pull requests:**
 
