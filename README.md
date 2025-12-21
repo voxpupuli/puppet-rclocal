@@ -1,6 +1,6 @@
 # Puppet rclocal module
 
-[![Build Status](https://travis-ci.org/voxpupuli/puppet-rclocal.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-rclocal)
+![Build Status](https://github.com/voxpupuli/puppet-rclocal/actions/workflows/ci.yml/badge.svg?branch=master)
 
 #### Table of Contents
 1. [Module Description](#module-description)
